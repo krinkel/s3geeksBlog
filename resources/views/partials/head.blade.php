@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Clean Blog - Start Bootstrap Theme</title>
+<title>S3Geeks Blog - @yield('pageTitle')</title>
 <!-- Bootstrap core CSS -->
 <link href="{{ asset('themes/clean_blog/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 

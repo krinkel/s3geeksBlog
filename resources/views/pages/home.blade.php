@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('pageTitle')Clean Blog @endsection
+@section('pageTitle')Homepage @endsection
 @section('pageDescription')مرحباُ بكم في موقعي @endsection
 @section('pageImage'){{ asset('themes/clean_blog/img/home-bg.jpg') }} @endsection
 
