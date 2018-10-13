@@ -1,5 +1,9 @@
 @extends('layouts.default')
 
+@section('pageTitle')Clean Blog @endsection
+@section('pageDescription')مرحباُ بكم في موقعي @endsection
+@section('pageImage'){{ asset('themes/clean_blog/img/home-bg.jpg') }} @endsection
+
 @section('content')
     <div class="col-lg-8 col-md-10 mx-auto">
         <div class="post-preview">
