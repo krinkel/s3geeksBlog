@@ -8,7 +8,7 @@
 @include('partials.navbar')
 
 <!-- Page Header -->
-@include('partials.header')
+@yield('header')
 
 <!-- Main Content -->
 <div class="container">

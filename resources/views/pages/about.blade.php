@@ -3,6 +3,7 @@
 @section('pageTitle')About Me @endsection
 @section('pageDescription')يمكنك معرفة تفاصيل عني من خلال معلومات هذه الصفحة @endsection
 @section('pageImage'){{ asset('themes/clean_blog/img/about-bg.jpg') }} @endsection
+@section('header') @include('partials.header') @endsection
 
 @section('content')
     <div class="col-lg-8 col-md-10 mx-auto">

@@ -3,6 +3,7 @@
 @section('pageTitle')Contact Me @endsection
 @section('pageDescription')Have questions? I have answers. @endsection
 @section('pageImage'){{ asset('themes/clean_blog/img/contact-bg.jpg') }} @endsection
+@section('header') @include('partials.header') @endsection
 
 @section('content')
     <div class="col-lg-8 col-md-10 mx-auto">
