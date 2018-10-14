@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Article;
 
 class PagesController extends Controller
 {
     public function index()
     {
-        return view('pages.home');
+        //$articles = Article::all();
+        //$articles = Article::where('id', '>', 1)->get();
+        //$articles = Article::where('id', 1)->get();
+        $articles = Article::latest('id')->limit(3)->get();
+        return view('pages.home', compact('articles'));
     }
 
     public function about()
