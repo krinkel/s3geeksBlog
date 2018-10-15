@@ -18,5 +18,6 @@ Route::get('/about', 'PagesController@about')->name('about');
 Route::get('/contact', 'PagesController@contact')->name('contact');
 Route::post('/contact', 'PagesController@sendMessage')->name('sendMessage');
 Route::get('/articles', 'ArticlesController@index')->name('articles');
-Route::get('/articles/{id}', 'ArticlesController@show')->name('show');
+Route::get('/articles/{id}', 'ArticlesController@show')->name('show')->where('id', '[0-9]+');
 Route::get('/author/{name}', 'ArticlesController@author')->name('author');
+Route::get('/articles/search', 'ArticlesController@search')->name('search');

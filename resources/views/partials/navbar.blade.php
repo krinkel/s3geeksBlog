@@ -21,5 +21,21 @@
                 </li>
             </ul>
         </div>
+
+        <div class="col-sm-4 col-sm-offset-3">
+            <div id="imaginary_container">
+                <form action="{{ route('search') }}" method="get">
+                    <div class="input-group stylish-input-group">
+                        <input type="text" name="q" class="form-control" placeholder="ابحث عن مقال ..">
+                        <span class="input-group-addon">
+                            <button type="submit">
+                                go
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
     </div>
 </nav>

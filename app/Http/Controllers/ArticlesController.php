@@ -24,4 +24,11 @@ class ArticlesController extends Controller
         $articles = Article::where('author', $name)->paginate(9);
         return view('articles.author', compact('articles', 'name'));
     }
+
+    public function search()
+    {
+        $text = request('q');
+        $articles = Article::latest('id')->where('title', 'like', '%'.$text.'%')->paginate(9);
+        return view('articles.search', compact('articles', 'text'));
+    }
 }
