@@ -9,13 +9,19 @@ class ArticlesController extends Controller
 {
     public function index()
     {
-        $articles = Article::latest('id')->paginate(3);
+        $articles = Article::latest('id')->paginate(9);
         return view('articles.index', compact('articles'));
     }
 
-    public function show()
+    public function show($id)
     {
+        $article = Article::find($id);
+        return view('articles.show', compact('article'));
+    }
 
-        return view('articles.show');
+    public function author($name)
+    {
+        $articles = Article::where('author', $name)->paginate(9);
+        return view('articles.author', compact('articles', 'name'));
     }
 }

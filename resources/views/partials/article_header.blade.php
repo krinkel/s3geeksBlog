@@ -7,8 +7,8 @@
                     <h1>@yield('pageTitle')</h1>
                     <h2 class="subheading">@yield('pageDescription')</h2>
                     <span class="meta">Posted by
-                <a href="#">Start Bootstrap</a>
-                on August 24, 2018</span>
+                <a href="{{ route('author', $article->author) }}">{{ $article->author }}</a>
+                on {{ $article->created_at->format('l jS \\of F Y h:i:s A') }}</span>
                 </div>
             </div>
         </div>

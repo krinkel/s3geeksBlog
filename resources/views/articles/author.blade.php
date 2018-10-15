@@ -1,7 +1,6 @@
 @extends('layouts.default')
 
-@section('pageTitle')Homepage @endsection
-@section('pageDescription')مرحباُ بكم في موقعي @endsection
+@section('pageTitle')مقالات الكاتب {{ $name }}@endsection
 @section('pageImage'){{ asset('themes/clean_blog/img/home-bg.jpg') }} @endsection
 @section('header') @include('partials.header') @endsection
 
@@ -18,14 +17,14 @@
                     </h3>
                 </a>
                 <p class="post-meta">Posted by
-                    <a href="{{ route('author', $article->author) }}">{{ $article->author }}</a>
+                    <a href="#">{{ $article->author }}</a>
                     on {{ $article->created_at->format('l jS \\of F Y h:i:s A') }}</p>
             </div>
             <hr>
         @endforeach
         <!-- Pager -->
         <div class="clearfix">
-            <a class="btn btn-primary float-right" href="{{ route('articles') }}">All Articles &rarr;</a>
+            {!! $articles->links() !!}
         </div>
     </div>
 @endsection
