@@ -28,7 +28,10 @@ class ArticlesController extends Controller
     public function search()
     {
         $text = request('q');
-        $articles = Article::latest('id')->where('title', 'like', '%'.$text.'%')->paginate(9);
+        $articles = Article::latest('id')
+            ->where('title', 'like', '%'.$text.'%')
+            ->orWhere('description', 'like', '%'.$text.'%')
+            ->paginate(9);
         return view('articles.search', compact('articles', 'text'));
     }
 }
