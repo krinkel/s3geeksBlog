@@ -7,6 +7,11 @@
 
 @section('content')
     <div class="col-lg-8 col-md-10 mx-auto">
+
+        @if( session('alert') )
+            <div class="alert alert-success" style="position: fixed; z-index: 10; top: 2px; right: 2px">{{ session('alert') }}</div>
+        @endif
+
         @foreach ($articles as $article)
             <div class="post-preview">
                 <a href="{{ route('show', $article->id) }}">

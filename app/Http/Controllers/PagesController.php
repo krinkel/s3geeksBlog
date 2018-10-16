@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Article;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactMe;
 
 class PagesController extends Controller
 {
@@ -28,6 +30,11 @@ class PagesController extends Controller
 
     public function sendMessage()
     {
-        
+        $data = request()->all();
+
+        Mail::to(config('mail.webmaster_email'))
+            ->send(new ContactMe($data));
+
+        return redirect()->route('home')->with(['alert' => 'تم الإرسال بنجاح، إنتظر الرد قريباً']);
     }
 }

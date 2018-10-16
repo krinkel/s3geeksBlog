@@ -60,6 +60,8 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
+    'webmaster_email' => env('WEBMASTER_MAIL','info@yallagroup.net'),
+
     /*
     |--------------------------------------------------------------------------
     | E-Mail Encryption Protocol
