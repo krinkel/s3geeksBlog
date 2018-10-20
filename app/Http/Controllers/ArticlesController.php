@@ -28,6 +28,8 @@ class ArticlesController extends Controller
     public function search()
     {
         $text = request('q');
+        session(['search' => $text]);
+
         $articles = Article::latest('id')
             ->where('title', 'like', '%'.$text.'%')
             ->orWhere('description', 'like', '%'.$text.'%')

@@ -29,7 +29,7 @@
                     {{--{!! csrf_field() !!}
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
                     <div class="input-group stylish-input-group">
-                        <input type="text" name="q" value="{{ old('q') }}" class="form-control" placeholder="ابحث عن مقال ..">
+                        <input type="text" name="q" value="{{ session('search') }}" class="form-control" placeholder="ابحث عن مقال ..">
                         <span class="input-group-addon">
                             <button type="submit">
                                 go
