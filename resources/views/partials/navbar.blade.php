@@ -8,16 +8,16 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home') }}">Home</a>
+                    <a class="nav-link" href="{{ route('home') }}">{{ trans('frontend.navbar.home') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('articles') }}">Articles</a>
+                    <a class="nav-link" href="{{ route('articles') }}">{{ trans('frontend.navbar.articles') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('about') }}">About</a>
+                    <a class="nav-link" href="{{ route('about') }}">{{ trans('frontend.navbar.about') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('contact') }}">Contact</a>
+                    <a class="nav-link" href="{{ route('contact') }}">{{ trans('frontend.navbar.contact') }}</a>
                 </li>
             </ul>
         </div>
@@ -32,7 +32,7 @@
                         <input type="text" name="q" value="{{ session('search') }}" class="form-control" placeholder="ابحث عن مقال ..">
                         <span class="input-group-addon">
                             <button type="submit">
-                                go
+                                {{ trans('frontend.search') }}
                             </button>
                         </span>
                     </div>

@@ -12,6 +12,7 @@ class PagesController extends Controller
 {
     public function index()
     {
+        //config(['app.locale' => 'en']);
         //$articles = Article::all();
         //$articles = Article::where('id', '>', 1)->get();
         //$articles = Article::where('id', 1)->get();
