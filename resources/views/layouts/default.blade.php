@@ -3,7 +3,7 @@
 <head>
     @include('partials.head')
 </head>
-<body>
+<body style="direction: {{ config('app.locale') == 'ar' ? 'rtl' : 'ltr' }}">
 <!-- Navigation -->
 @include('partials.navbar')
 
