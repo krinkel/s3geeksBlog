@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Article;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMe;
+use App\Http\Requests\ContactRequest;
 
 class PagesController extends Controller
 {
@@ -28,9 +29,9 @@ class PagesController extends Controller
         return view('pages.contact');
     }
 
-    public function sendMessage()
+    public function sendMessage(ContactRequest $request)
     {
-        $data = request()->all();
+        $data = $request->all();
 
         Mail::to(config('mail.webmaster_email'))
             ->send(new ContactMe($data));
