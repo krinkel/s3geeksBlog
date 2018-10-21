@@ -15,7 +15,7 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $items = Article::latest('id')->paginate(30);
+        $items = Article::latest('id')->where('status', 1)->paginate(30);
 
         return view('backend.modules.articles.index', compact('items'));
     }
@@ -72,6 +72,9 @@ class ArticlesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //Article::where('id', $id)->delete();
+        Article::where('id', $id)->update(['status' => 0]);
+
+        return redirect()->route('backend.articles');
     }
 }

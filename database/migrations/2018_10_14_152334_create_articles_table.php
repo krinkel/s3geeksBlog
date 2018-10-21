@@ -19,6 +19,7 @@ class CreateArticlesTable extends Migration
             $table->string('author')->nullable();
             $table->text('description');
             $table->bigInteger('visits')->default(0);
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }
