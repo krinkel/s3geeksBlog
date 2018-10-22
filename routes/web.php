@@ -23,10 +23,14 @@ Route::get('/articles/{id}', 'ArticlesController@show')->name('show')->where('id
 Route::get('/author/{name}', 'ArticlesController@author')->name('author');
 Route::get('/articles/search', 'ArticlesController@search')->name('search');
 
+//=> Backend Routes
+Route::middleware(['auth'])->prefix('admin')->namespace('Backend')->group(function () {
+    Route::get('/', 'DashboardController@index')->name('backend.dashboard');
 
-
-Route::get('/admin', 'Backend\DashboardController@index')->name('backend.dashboard');
-Route::get('/admin/articles', 'Backend\ArticlesController@index')->name('backend.articles');
-Route::get('/admin/articles/create', 'Backend\ArticlesController@create')->name('backend.articles.create');
-Route::get('/admin/articles/edit/{id}', 'Backend\ArticlesController@edit')->name('backend.articles.edit');
-Route::get('/admin/articles/destroy/{id}', 'Backend\ArticlesController@destroy')->name('backend.articles.destroy');
+    Route::prefix('articles')->group(function () {
+        Route::get('/', 'ArticlesController@index')->name('backend.articles');
+        Route::get('/create', 'ArticlesController@create')->name('backend.articles.create');
+        Route::get('/edit/{id}', 'ArticlesController@edit')->name('backend.articles.edit');
+        Route::get('/destroy/{id}', 'ArticlesController@destroy')->name('backend.articles.destroy');
+    });
+});
