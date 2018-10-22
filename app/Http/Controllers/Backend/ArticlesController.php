@@ -73,7 +73,10 @@ class ArticlesController extends Controller
     public function destroy($id)
     {
         //Article::where('id', $id)->delete();
-        Article::where('id', $id)->update(['status' => 0]);
+        $deleted = Article::where('id', $id)->update(['status' => 0]);
+
+        if($deleted)
+            session()->flash('message', trans('backend/messages.success.deleted'));
 
         return redirect()->route('backend.articles');
     }
