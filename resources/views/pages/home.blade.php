@@ -19,7 +19,7 @@
                         {{ $article->title }}
                     </h2>
                     <h3 class="post-subtitle">
-                        {{ str_limit($article->description, 200) }}
+                        {{ str_limit(strip_tags($article->description), 200) }}
                     </h3>
                 </a>
                 <p class="post-meta">Posted by

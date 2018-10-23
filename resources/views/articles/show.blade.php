@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('pageTitle'){{ $article->title }} @endsection
-@section('pageDescription'){{ str_limit($article->description, 100) }} @endsection
+@section('pageDescription'){{ str_limit(strip_tags($article->description), 100) }} @endsection
 @section('pageImage'){{ asset('themes/clean_blog/img/post-bg.jpg') }} @endsection
 @section('header') @include('partials.article_header') @endsection
 
