@@ -16,6 +16,7 @@ class ArticlesController extends Controller
     public function show($id)
     {
         $article = Article::find($id);
+        $article->increment('visits');
         return view('articles.show', compact('article'));
     }
 

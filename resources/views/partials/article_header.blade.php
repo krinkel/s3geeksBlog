@@ -9,6 +9,7 @@
                     <span class="meta">Posted by
                 <a href="{{ route('author', $article->author) }}">{{ $article->author }}</a>
                 on {{ $article->created_at->format('l jS \\of F Y h:i:s A') }}</span>
+                    <span class="meta">Visits {{ $article->visits }}</span>
                 </div>
             </div>
         </div>
