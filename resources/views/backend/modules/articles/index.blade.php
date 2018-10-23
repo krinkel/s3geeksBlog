@@ -33,9 +33,9 @@
                                 <th>{{ trans('backend/master.index-nav.title') }}</th>
                                 <th>{{ trans('backend/master.index-nav.control') }}</th>
                             </tr>
-                            @foreach($items as $item)
+                            @foreach($items as $key => $item)
                                 <tr>
-                                    <td>{{ $item->id }}</td>
+                                    <td>{{--{{ $key + 1 }}--}} {{ $item->id }}</td>
                                     <td>{{ $item->title }}</td>
                                     <td>
                                         <a href="{{ route('backend.articles.edit', $item->id) }}" class="btn btn-primary btn-xs">{{ trans('backend/master.control.edit') }}</a>
@@ -45,6 +45,8 @@
                             @endforeach
                             </tbody></table>
                     </div>
+
+                    {!! $items->links() !!}
                     <!-- /.box-body -->
                 </div>
                 <!-- /.box -->

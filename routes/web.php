@@ -30,7 +30,9 @@ Route::middleware(['auth'])->prefix('admin')->namespace('Backend')->group(functi
     Route::prefix('articles')->group(function () {
         Route::get('/', 'ArticlesController@index')->name('backend.articles');
         Route::get('/create', 'ArticlesController@create')->name('backend.articles.create');
+        Route::post('/store', 'ArticlesController@store')->name('backend.articles.store');
         Route::get('/edit/{id}', 'ArticlesController@edit')->name('backend.articles.edit');
+        Route::post('/update/{id}', 'ArticlesController@update')->name('backend.articles.update');
         Route::get('/destroy/{id}', 'ArticlesController@destroy')->name('backend.articles.destroy');
     });
 });
