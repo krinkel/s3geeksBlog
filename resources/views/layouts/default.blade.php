@@ -12,6 +12,8 @@
 
 <!-- Main Content -->
 <div class="container">
+    @include('partials.notifications')
+
     <div class="row">
         @yield('content')
     </div>
