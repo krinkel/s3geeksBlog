@@ -7,21 +7,15 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
-class ArticlesController extends Controller
+class ArticlesController extends MasterController
 {
+    private $model;
+    private $module = 'articles';
+
     public function __construct()
     {
-        $this->middleware(function ($request, $next) {
-
-            //=> Check permission To Access.
-            if(Auth::user()->role != 'admin'){
-                session()->flash('notificationType', 'error');
-                session()->flash('message', trans('backend/messages.error.denied'));
-                return redirect()->route('home');
-            }
-
-            return $next($request);
-        });
+        parent::__construct();
+        $this->model = new Article;
     }
 
     /**
@@ -31,9 +25,9 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $items = Article::latest('id')->where('status', 1)->paginate(30);
+        $items = $this->model->latest('id')->where('status', 1)->paginate(30);
 
-        return view('backend.modules.articles.index', compact('items'));
+        return view('backend.modules.'.$this->module.'.index', compact('items'));
     }
 
     /**
@@ -43,7 +37,7 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        return view('backend.modules.articles.create');
+        return view('backend.modules.'.$this->module.'.create');
     }
 
     /**
@@ -60,8 +54,8 @@ class ArticlesController extends Controller
             'description'   => 'required|min:100|max:10000',
         ]);
 
-        //$create = Article::create($data);
-        $create = Article::create([
+        //$create = $this->model->create($data);
+        $create = $this->model->create([
             'title'         => $request->title,
             'author'        => $request->author,
             'description'   => $request->description,
@@ -81,7 +75,7 @@ class ArticlesController extends Controller
      */
     public function edit($id)
     {
-        $item = Article::find($id);
+        $item = $this->model->find($id);
         return view('backend.modules.articles.edit', compact('item'));
     }
 
@@ -100,7 +94,7 @@ class ArticlesController extends Controller
             'description'   => 'required|min:100|max:10000',
         ]);
 
-        $update = Article::where('id', $id)->update([
+        $update = $this->model->where('id', $id)->update([
             'title'         => $request->title,
             'author'        => $request->author,
             'description'   => $request->description,
@@ -121,7 +115,7 @@ class ArticlesController extends Controller
     public function destroy($id)
     {
         //Article::where('id', $id)->delete();
-        $deleted = Article::where('id', $id)->update(['status' => 0]);
+        $deleted = $this->model->where('id', $id)->update(['status' => 0]);
 
         if($deleted)
             session()->flash('message', trans('backend/messages.success.deleted'));
